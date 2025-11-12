@@ -1,0 +1,116 @@
+@import url("//fonts.googleapis.com/earlyaccess/notosanskr.css");
+$main_c1: #004f4a;
+$main_c2: #90bd20;
+$main_c3: #22bfa5;
+$sub_black: #3a3a3a;
+html {
+  font-size: 10px;
+}
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.4rem;
+}
+header {
+  .container {
+    max-width: 1620px;
+    height: 105px;
+  }
+}
+.header-menubox {
+  > ul {
+    height: 100%;
+    > li {
+      height: 100%;
+      position: relative;
+      > a {
+        color: $sub_black;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 4.5rem;
+        font-weight: 500;
+        font-size: 1.8rem;
+      }
+      &:hover {
+        ul {
+          padding-block: 20px;
+          margin-top: -23px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+          background-color: #fff;
+          display: block;
+          position: absolute;
+          // display: flex;
+          width: 100%;
+          // flex-direction: column;
+          // align-items: center;
+          > li > a {
+            display: flex;
+            justify-content: center;
+            font-size: 1.6rem;
+            padding: 0.8rem 0;
+            color: #222;
+          }
+        }
+      }
+    }
+  }
+  ul ul {
+    display: none;
+  }
+}
+
+.lang-list {
+  display: none;
+  width: 100px;
+  position: absolute;
+  right: 0;
+  left: auto;
+  top: 38px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 2.5rem 1rem;
+  a {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #000;
+  }
+}
+.header-utils__lang {
+  position: relative;
+  &.active {
+    .lang-list {
+      display: block;
+    }
+  }
+}
+
+.lang-icon {
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.menu-btn {
+  margin-left: 4.4rem;
+  width: 32px;
+  height: 27px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  cursor: pointer;
+  .bar {
+    height: 3px;
+    width: 32px;
+    background-color: $main_c1;
+    border-radius: 5px;
+  }
+  .mid-bar {
+    width: 19px;
+  }
+}
