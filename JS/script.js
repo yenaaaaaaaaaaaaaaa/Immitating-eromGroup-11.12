@@ -1,6 +1,6 @@
 console.clear();
 const headerUtilsLang = document.querySelector(".header-utils__lang");
-
+const langList = document.querySelector('.lang-list');
 function headerLangOption() {
   headerUtilsLang.addEventListener("click", function () {
     const isActive = this.classList.contains("active");
@@ -11,6 +11,9 @@ function headerLangOption() {
     } else {
       addActiveClass(headerUtilsLang);
     }
+  });
+  langList.addEventListener('click', function(e){
+    e.stopPropagation();
   });
 }
 function addActiveClass(el) {

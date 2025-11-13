@@ -31,23 +31,25 @@ header .container {
 }
 .header-menubox > ul > li:hover ul {
   padding-block: 20px;
+  max-height: 300px;
+}
+.header-menubox ul ul {
+  max-height: 0;
+  overflow: hidden;
   margin-top: -23px;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  display: block;
   position: absolute;
   width: 100%;
+  transition: all 0.5s;
 }
-.header-menubox > ul > li:hover ul > li > a {
+.header-menubox ul ul > li > a {
   display: flex;
   justify-content: center;
   font-size: 1.6rem;
   padding: 0.8rem 0;
   color: #222;
-}
-.header-menubox ul ul {
-  display: none;
 }
 
 .lang-list {
@@ -88,18 +90,61 @@ header .container {
   margin-left: 4.4rem;
   width: 32px;
   height: 27px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: start;
+  position: relative;
   cursor: pointer;
 }
 .menu-btn .bar {
+  position: absolute;
   height: 3px;
-  width: 32px;
   background-color: #004f4a;
   border-radius: 5px;
 }
+.menu-btn .first-bar {
+  left: 0;
+  top: 0;
+  width: 32px;
+  transition: all 0.5s;
+}
 .menu-btn .mid-bar {
   width: 19px;
+  top: 50%;
+  transform: translateY(calc(-50% + 0.5px));
+}
+.menu-btn .mid-bar::after {
+  content: "";
+  height: 3px;
+  width: 32px;
+  background-color: #fff;
+  position: absolute;
+}
+.menu-btn .mid-bar::before {
+  content: "";
+  width: 32px;
+  height: 3px;
+  background-color: #fff;
+  position: absolute;
+}
+.menu-btn .mid-bar.active {
+  width: 0;
+}
+.menu-btn .mid-bar.active::before {
+  width: 32px;
+  transform: rotate(-45deg);
+}
+.menu-btn .mid-bar.active::after {
+  width: 32px;
+  transform: rotate(45deg);
+}
+.menu-btn .last-bar {
+  bottom: 0;
+  right: 0;
+  width: 32px;
+  transition: all 0.5s;
+}
+.menu-btn.active .first-bar {
+  width: 0;
+}
+.menu-btn.active .last-bar {
+  width: 0;
 }
