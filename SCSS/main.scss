@@ -10,9 +10,87 @@ body {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 1.4rem;
 }
+//gnb
+.gnb-box {
+  background: linear-gradient(-45deg, #20bd80 -20%, #004e4f);
+  z-index: 800;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  // transform: translateY(-100%);
+  height: 0;
+  transition: height 0.5s;
+  .container {
+    padding-inline: 3rem;
+  }
+  &.active {
+    // transform: translateY(0);
+    height: 100%;
+    overflow-y: visible;
+  }
+}
+.gnb-inner {
+  height: calc(100% - 10.4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.gnb-menubox {
+  color: #fff;
+  .depth1 > li {
+    > a {
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+  }
+  .depth2 {
+    margin-top: 4rem;
+    > li {
+      margin-top: 12px;
+      > a {
+        font-size: 1.8rem;
+        font-weight: 400;
+      }
+    }
+  }
+}
+.gnb-footer {
+  margin-top: 13rem;
+  .ft-1 {
+    padding: 3.1rem 0;
+    border-block: 1px solid rgba(255, 255, 255, 0.3);
+    a {
+      font-size: 1.6rem;
+      color: #fff;
+      font-weight: 500;
+    }
+  }
+  .ft-2 {
+    padding: 3.1rem 0;
+    font-size: 14px;
+    color: #ccc;
+    display: flex;
+    > div:not(:last-child) {
+      &::after {
+        display: inline-block;
+        content: "";
+        height: 10px;
+        width: 1px;
+        margin-inline: 1.1rem;
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+
+//EOgnb
 header {
   .container {
     max-width: 1620px;
+    // height: 105px;
+  }
+  .header-inner {
     height: 105px;
   }
 }
@@ -34,14 +112,13 @@ header {
       &:hover {
         ul {
           padding-block: 20px;
-          max-height : 300px;
-         
+          max-height: 300px;
         }
       }
     }
   }
   ul ul {
-    max-height : 0;
+    max-height: 0;
     overflow: hidden;
     margin-top: -23px;
     border-radius: 10px;
@@ -64,18 +141,21 @@ header {
 }
 
 .lang-list {
-  display: none;
   width: 100px;
+  overflow: hidden;
   position: absolute;
   right: 0;
   left: auto;
+  max-height: 0;
   top: 38px;
+  padding-inline: 1rem;
   background-color: #f7f7f7;
   border-radius: 10px;
-  padding: 2.5rem 1rem;
+  transition: all 0.5s;
   a {
     display: flex;
     align-items: center;
+    justify-content: start;
     font-size: 14px;
     color: #000;
   }
@@ -84,7 +164,8 @@ header {
   position: relative;
   &.active {
     .lang-list {
-      display: block;
+      max-height: 200px;
+      padding-block: 2.5rem;
     }
   }
 }
@@ -99,73 +180,74 @@ header {
 }
 
 .menu-btn {
+  z-index: 1000;
   margin-left: 4.4rem;
   width: 32px;
   height: 27px;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
-  align-items: start;
   position: relative;
   cursor: pointer;
-  .bar {
-    position: absolute;
+  &::after,
+  &::before {
+    content: "";
     height: 3px;
+    width: 32px;
+    background-color: $main_c1;
+    display: block;
+    border-radius: 5px;
+    position: absolute;
+    transition: width 0.4s 0.6s;
+  }
+  &::after {
+    content: "";
+    bottom: 0;
+    right: 0;
+  }
+  &::before {
+    top: 0;
+    left: 0;
+  }
+  .bar {
+    position: relative;
+    height: 3px;
+    width: 19px;
     background-color: $main_c1;
     border-radius: 5px;
-  }
-  .first-bar{
-    left : 0;
-    top : 0;
-    width: 32px;
-    transition: all 0.5s;
-  }
-  .mid-bar{
-    width: 19px;
-    top : 50%;
+    top: 50%;
     transform: translateY(calc(-50% + 0.5px));
-    // position: relative;
-    &::after{
-      content : "";
-      height : 3px;
-      width : 32px;
+    visibility: visible;
+    transition: visibility 0.2s 0.3s;
+    &::after,
+    &::before {
+      content: "";
+      visibility: hidden;
+      height: 3px;
+      width: 32px;
       background-color: #fff;
+      border-radius: 5px;
       position: absolute;
+      transition: visibility 0s 0.4s, transform 0.4s 0s;
     }
-    &::before{
-      content : "";
-      width : 32px;
-      height : 3px;
-      background-color: #fff;
-      position: absolute;
+  }
+  &.active {
+    &::after,
+    &::before {
+      width: 0;
+      transition-delay: 0s;
     }
-    &.active{
-      width : 0;
-      &::before{
-        width : 32px;
-        transform: rotate(-45deg); 
+    .bar {
+      visibility: hidden;
+      transition-delay: 0.2s;
+      &::after,
+      &::before {
+        visibility: visible;
+        transition-delay: 0.4s;
       }
-      &::after{
-        width : 32px;
+      &::after {
         transform: rotate(45deg);
       }
-    }
-  }
-  .last-bar{
-    bottom : 0;
-    right : 0;
-    width : 32px;
-    transition: all 0.5s;
-
-  }
-  &.active{
-    .first-bar{
-      width: 0;
-    }
-    .last-bar{
-      width: 0;
+      &::before {
+        transform: rotate(-45deg);
+      }
     }
   }
 }
-
-

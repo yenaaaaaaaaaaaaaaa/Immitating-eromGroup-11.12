@@ -8,8 +8,80 @@ body {
   font-size: 1.4rem;
 }
 
+.gnb-box {
+  background: linear-gradient(-45deg, #20bd80 -20%, #004e4f);
+  z-index: 800;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  height: 0;
+  transition: height 0.5s;
+}
+.gnb-box .container {
+  padding-inline: 3rem;
+}
+.gnb-box.active {
+  height: 100%;
+  overflow-y: visible;
+}
+
+.gnb-inner {
+  height: calc(100% - 10.4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gnb-menubox {
+  color: #fff;
+}
+.gnb-menubox .depth1 > li > a {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+.gnb-menubox .depth2 {
+  margin-top: 4rem;
+}
+.gnb-menubox .depth2 > li {
+  margin-top: 12px;
+}
+.gnb-menubox .depth2 > li > a {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.gnb-footer {
+  margin-top: 13rem;
+}
+.gnb-footer .ft-1 {
+  padding: 3.1rem 0;
+  border-block: 1px solid rgba(255, 255, 255, 0.3);
+}
+.gnb-footer .ft-1 a {
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: 500;
+}
+.gnb-footer .ft-2 {
+  padding: 3.1rem 0;
+  font-size: 14px;
+  color: #ccc;
+  display: flex;
+}
+.gnb-footer .ft-2 > div:not(:last-child)::after {
+  display: inline-block;
+  content: "";
+  height: 10px;
+  width: 1px;
+  margin-inline: 1.1rem;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
 header .container {
   max-width: 1620px;
+}
+header .header-inner {
   height: 105px;
 }
 
@@ -53,19 +125,22 @@ header .container {
 }
 
 .lang-list {
-  display: none;
   width: 100px;
+  overflow: hidden;
   position: absolute;
   right: 0;
   left: auto;
+  max-height: 0;
   top: 38px;
+  padding-inline: 1rem;
   background-color: #f7f7f7;
   border-radius: 10px;
-  padding: 2.5rem 1rem;
+  transition: all 0.5s;
 }
 .lang-list a {
   display: flex;
   align-items: center;
+  justify-content: start;
   font-size: 14px;
   color: #000;
 }
@@ -74,7 +149,8 @@ header .container {
   position: relative;
 }
 .header-utils__lang.active .lang-list {
-  display: block;
+  max-height: 200px;
+  padding-block: 2.5rem;
 }
 
 .lang-icon {
@@ -87,64 +163,68 @@ header .container {
 }
 
 .menu-btn {
+  z-index: 1000;
   margin-left: 4.4rem;
   width: 32px;
   height: 27px;
-  align-items: start;
   position: relative;
   cursor: pointer;
 }
-.menu-btn .bar {
-  position: absolute;
+.menu-btn::after, .menu-btn::before {
+  content: "";
   height: 3px;
+  width: 32px;
   background-color: #004f4a;
+  display: block;
   border-radius: 5px;
-}
-.menu-btn .first-bar {
-  left: 0;
-  top: 0;
-  width: 32px;
-  transition: all 0.5s;
-}
-.menu-btn .mid-bar {
-  width: 19px;
-  top: 50%;
-  transform: translateY(calc(-50% + 0.5px));
-}
-.menu-btn .mid-bar::after {
-  content: "";
-  height: 3px;
-  width: 32px;
-  background-color: #fff;
   position: absolute;
+  transition: width 0.4s 0.6s;
 }
-.menu-btn .mid-bar::before {
+.menu-btn::after {
   content: "";
-  width: 32px;
-  height: 3px;
-  background-color: #fff;
-  position: absolute;
-}
-.menu-btn .mid-bar.active {
-  width: 0;
-}
-.menu-btn .mid-bar.active::before {
-  width: 32px;
-  transform: rotate(-45deg);
-}
-.menu-btn .mid-bar.active::after {
-  width: 32px;
-  transform: rotate(45deg);
-}
-.menu-btn .last-bar {
   bottom: 0;
   right: 0;
+}
+.menu-btn::before {
+  top: 0;
+  left: 0;
+}
+.menu-btn .bar {
+  position: relative;
+  height: 3px;
+  width: 19px;
+  background-color: #004f4a;
+  border-radius: 5px;
+  top: 50%;
+  transform: translateY(calc(-50% + 0.5px));
+  visibility: visible;
+  transition: visibility 0.2s 0.3s;
+}
+.menu-btn .bar::after, .menu-btn .bar::before {
+  content: "";
+  visibility: hidden;
+  height: 3px;
   width: 32px;
-  transition: all 0.5s;
+  background-color: #fff;
+  border-radius: 5px;
+  position: absolute;
+  transition: visibility 0s 0.4s, transform 0.4s 0s;
 }
-.menu-btn.active .first-bar {
+.menu-btn.active::after, .menu-btn.active::before {
   width: 0;
+  transition-delay: 0s;
 }
-.menu-btn.active .last-bar {
-  width: 0;
+.menu-btn.active .bar {
+  visibility: hidden;
+  transition-delay: 0.2s;
+}
+.menu-btn.active .bar::after, .menu-btn.active .bar::before {
+  visibility: visible;
+  transition-delay: 0.4s;
+}
+.menu-btn.active .bar::after {
+  transform: rotate(45deg);
+}
+.menu-btn.active .bar::before {
+  transform: rotate(-45deg);
 }
