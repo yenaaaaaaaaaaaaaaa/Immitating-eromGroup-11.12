@@ -8,6 +8,14 @@ body {
   font-size: 1.4rem;
 }
 
+.container {
+  max-width: 1620px;
+}
+
+.header-inner {
+  height: 105px;
+}
+
 .gnb-box {
   background: linear-gradient(-45deg, #20bd80 -20%, #004e4f);
   z-index: 800;
@@ -78,13 +86,6 @@ body {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-header .container {
-  max-width: 1620px;
-}
-header .header-inner {
-  height: 105px;
-}
-
 .header-menubox > ul {
   height: 100%;
 }
@@ -106,6 +107,7 @@ header .header-inner {
   max-height: 300px;
 }
 .header-menubox ul ul {
+  z-index: 700;
   max-height: 0;
   overflow: hidden;
   margin-top: -23px;
@@ -132,6 +134,7 @@ header .header-inner {
   left: auto;
   max-height: 0;
   top: 38px;
+  z-index: 700;
   padding-inline: 1rem;
   background-color: #f7f7f7;
   border-radius: 10px;
@@ -227,4 +230,171 @@ header .header-inner {
 }
 .menu-btn.active .bar::before {
   transform: rotate(-45deg);
+}
+
+.section1 .swiper-slide1 {
+  background-image: url(/ASSETS/images/visual01.png);
+}
+.section1 .swiper-slide2 {
+  background-image: url(/ASSETS/images/visual02.png);
+}
+.section1 .swiper-slide3 {
+  background-image: url(/ASSETS/images/visual03.png);
+}
+.section1 .swiper-slide4 {
+  background-image: url(/ASSETS/images/visual04.png);
+}
+.section1 .swiper-slide5 {
+  background-image: url(/ASSETS/images/visual05.png);
+}
+.section1 .swiper-slide {
+  height: 800px;
+  width: 100%;
+}
+.section1 .container {
+  margin-inline: auto;
+  padding-inline: 3rem;
+  height: 100%;
+}
+.section1 .inner {
+  display: flex;
+  height: 800px;
+  width: 100%;
+  top: 0;
+  padding-top: 16.6rem;
+}
+.section1 .num {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  padding-top: 7px;
+  margin-right: 7rem;
+  color: #fff;
+}
+.section1 .num.sub_black {
+  color: #000;
+}
+.section1 .company {
+  background-color: #004f4a;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+  padding-inline: 1.5rem;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.section1 .txt-main {
+  font-size: 4rem;
+  margin-top: 1.8rem;
+  margin-bottom: 6.6rem;
+  line-height: 4.8rem;
+  font-weight: 400;
+  color: #fff;
+}
+.section1 .txt-main .highlight {
+  font-weight: 600;
+  color: #90bd20;
+}
+.section1 .txt-main.black {
+  color: #000;
+}
+.section1 .txt-sub {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #fff;
+}
+.section1 .txt-sub.sub_black {
+  color: #3a3a3a;
+}
+
+.more {
+  width: 200px;
+  height: 54px;
+  margin-top: 56px;
+  border-radius: 100px;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.more::before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(to right, #004f4a, #22bfa5);
+  transform: scale(1);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  z-index: -1;
+  transform-origin: left center;
+  transition: all 0.5s;
+}
+.more:hover {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #3a3a3a;
+}
+.more:hover::before {
+  transform: scale(0);
+}
+
+.swiper-controlbox {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  right: 3rem;
+  width: 255px;
+  height: 94px;
+  background-color: #fff;
+  padding-inline: 4.5rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.swiper-controlbox .arrow-btn {
+  width: 33px;
+  height: 9px;
+  flex-shrink: 0;
+}
+.swiper-controlbox .pagination1 {
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swiper-controlbox .bar {
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  background-color: #e5e5e5;
+  margin-inline: 10px;
+}
+.swiper-controlbox .current {
+  color: #3a3a3a;
+}
+.swiper-controlbox .total {
+  color: #bbb;
+}
+.swiper-controlbox .pagination2 {
+  height: 2px;
+  width: 165px;
+  background-color: #eee;
+  position: absolute;
+  bottom: 2rem;
+}
+.swiper-controlbox .progressbarFillClass {
+  background-color: #000;
+  transform-origin: left;
+  transition: transform 0.5s;
+  height: 100%;
+  width: 165px;
+  display: block;
 }
