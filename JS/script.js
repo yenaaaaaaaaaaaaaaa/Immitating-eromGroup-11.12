@@ -79,7 +79,13 @@ function addActiveClass(el) {
 function removeActiveClass(el) {
   el.classList.remove("active");
 }
+//AOS
 
+AOS.init({
+  offset : 150,
+  duration : 1000,
+  mirror : true
+});
 //========================================================================
 headerLangOption();
 menuBtnMotion();

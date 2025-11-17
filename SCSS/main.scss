@@ -251,7 +251,7 @@ body {
     }
   }
 }
-//======================================
+//======================================section1====================================
 .section1 {
   @for $i from 1 through 5 {
     .swiper-slide#{$i} {
@@ -324,7 +324,7 @@ body {
     color: $sub_black;
   }
 }
-.more {
+.section1 .more {
   width: 200px;
   height: 54px;
   margin-top: 56px;
@@ -411,5 +411,107 @@ body {
     height: 100%;
     width: 165px;
     display: block;
+  }
+}
+//========================section2====================
+.section2{
+  background-color: #fafafa;
+  padding : 13.6rem 0 15rem;
+  .container{
+    padding-inline : 3rem;
+  }
+  .txt-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 10rem;
+    
+    .main-txt{
+      position: relative;
+      display: inline-block;
+      font-size: 4.8rem;
+      color: #000;
+      font-weight: 600;
+      margin-bottom: 3.8rem;
+      p{
+        position: relative;
+        z-index: 100;
+      }
+      .circle{
+        width: 30px;
+        height : 30px;
+        border-radius: 50%;
+        background-color: $main_c2;
+        left : -15px;
+        display: inline-block;
+        position : absolute;
+        z-index: 10;
+      }
+    }
+    .sub-txt{
+      line-height: 3.4rem;
+    }
+    .highlight{
+      font-weight: 600;
+    }
+  }
+  .iconbox{
+    
+    .icon{
+      flex : 1;
+      height: 237px; 
+      &:not(:last-child){
+        border-right: 1px solid rgba(0, 79, 74, 0.15);
+      }
+    }
+    a{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      img{
+        width : 66px;
+        height : 69px;
+      }
+      &:hover{
+        .title{
+          color : $main_c1;
+        }
+        .more{
+          height: 34px;
+          margin-top: 2rem;
+          
+        }
+      }
+    }
+    .title{
+        font-size: 2.6rem;
+        color: #666;
+        font-weight: 700;
+        margin-top: 2.6rem;
+        transition: all 0.5s;
+        position: relative;
+    }
+    .more{
+      transition: all 0.5s;
+      height : 0;
+      overflow: hidden;
+      .arrow{
+        display: inline-flex;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background-color:#d2ecea;
+        justify-content: center;
+        align-items: center;    
+        font-size: 11px;
+      }
+    }
   }
 }
