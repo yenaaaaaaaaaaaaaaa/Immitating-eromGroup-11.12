@@ -414,13 +414,13 @@ body {
   }
 }
 //========================section2====================
-.section2{
+.section2 {
   background-color: #fafafa;
-  padding : 13.6rem 0 15rem;
-  .container{
-    padding-inline : 3rem;
+  padding: 13.6rem 0 15rem;
+  .container {
+    padding-inline: 3rem;
   }
-  .txt-box{
+  .txt-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -429,89 +429,159 @@ body {
     color: #000;
     font-weight: 400;
     margin-bottom: 10rem;
-    
-    .main-txt{
+
+    .main-txt {
       position: relative;
       display: inline-block;
       font-size: 4.8rem;
       color: #000;
       font-weight: 600;
       margin-bottom: 3.8rem;
-      p{
+      p {
         position: relative;
         z-index: 100;
       }
-      .circle{
+      .circle {
         width: 30px;
-        height : 30px;
+        height: 30px;
         border-radius: 50%;
         background-color: $main_c2;
-        left : -15px;
+        left: -15px;
         display: inline-block;
-        position : absolute;
+        position: absolute;
         z-index: 10;
       }
     }
-    .sub-txt{
+    .sub-txt {
       line-height: 3.4rem;
     }
-    .highlight{
+    .highlight {
       font-weight: 600;
     }
   }
-  .iconbox{
-    
-    .icon{
-      flex : 1;
-      height: 237px; 
-      &:not(:last-child){
+  .iconbox {
+    .icon {
+      flex: 1;
+      height: 237px;
+      &:not(:last-child) {
         border-right: 1px solid rgba(0, 79, 74, 0.15);
       }
     }
-    a{
+    a {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 100%;
       height: 100%;
-      img{
-        width : 66px;
-        height : 69px;
+      img {
+        width: 66px;
+        height: 69px;
       }
-      &:hover{
-        .title{
-          color : $main_c1;
+      &:hover {
+        .title {
+          color: $main_c1;
         }
-        .more{
+        .more {
           height: 34px;
           margin-top: 2rem;
-          
         }
       }
     }
-    .title{
-        font-size: 2.6rem;
-        color: #666;
-        font-weight: 700;
-        margin-top: 2.6rem;
-        transition: all 0.5s;
-        position: relative;
-    }
-    .more{
+    .title {
+      font-size: 2.6rem;
+      color: #666;
+      font-weight: 700;
+      margin-top: 2.6rem;
       transition: all 0.5s;
-      height : 0;
+      position: relative;
+    }
+    .more {
+      transition: all 0.5s;
+      height: 0;
       overflow: hidden;
-      .arrow{
+      .arrow {
         display: inline-flex;
         width: 34px;
         height: 34px;
         border-radius: 50%;
-        background-color:#d2ecea;
+        background-color: #d2ecea;
         justify-content: center;
-        align-items: center;    
+        align-items: center;
         font-size: 11px;
       }
     }
+  }
+}
+//====================section3=============================
+.section3 {
+  .container {
+    padding-inline: 3rem;
+    display: flex;
+    padding-block: 7rem 11.5rem;
+  }
+  .more {
+    .arrow {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: $main_c2;
+      color: #fff;
+      justify-content: center;
+      align-items: center;
+      font-size: 11px;
+    }
+  }
+  .box1 {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding-right: 8.2rem;
+    border-right: 2px dotted #dadada;
+    align-items: center;
+  }
+  .box2 {
+    padding-left: 8.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    justify-content: space-between;
+    .more {
+      .arrow {
+        background-color: $main_c1;
+      }
+    }
+    .txt-box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      p {
+        text-align: end;
+      }
+    }
+  }
+  .txt-box {
+    .eng {
+      font-size: 2rem;
+      color: #aaa;
+      font-weight: 700;
+      letter-spacing: 5px;
+    }
+    .kor {
+      font-size: 4.4rem;
+      color: $main_c1;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .desc {
+      font-size: 2rem;
+      color: #3a3a3a;
+      margin-block: 3.4rem 12.2rem;
+    }
+  }
+  img {
+    display: inline-block;
   }
 }
