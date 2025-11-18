@@ -3,6 +3,27 @@ $main_c1: #004f4a;
 $main_c2: #90bd20;
 $main_c3: #22bfa5;
 $sub_black: #3a3a3a;
+@mixin arrow {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #d2ecea;
+  color: #000;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  margin-left: 10px;
+}
+@mixin circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: $main_c2;
+  position: absolute;
+  left: -15px;
+  z-index: 10;
+}
 html {
   font-size: 10px;
 }
@@ -442,14 +463,7 @@ body {
         z-index: 100;
       }
       .circle {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-color: $main_c2;
-        left: -15px;
-        display: inline-block;
-        position: absolute;
-        z-index: 10;
+        @include circle();
       }
     }
     .sub-txt {
@@ -501,14 +515,8 @@ body {
       height: 0;
       overflow: hidden;
       .arrow {
-        display: inline-flex;
-        width: 34px;
-        height: 34px;
-        border-radius: 50%;
+        @include arrow();
         background-color: #d2ecea;
-        justify-content: center;
-        align-items: center;
-        font-size: 11px;
       }
     }
   }
@@ -522,15 +530,9 @@ body {
   }
   .more {
     .arrow {
-      display: inline-flex;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
+      @include arrow();
       background-color: $main_c2;
       color: #fff;
-      justify-content: center;
-      align-items: center;
-      font-size: 11px;
     }
   }
   .box1 {
@@ -583,5 +585,133 @@ body {
   }
   img {
     display: inline-block;
+  }
+}
+//==========================section4==============================
+.section4 {
+  background-color: $main_c1;
+  .circle {
+    @include circle();
+  }
+  .sub-txt {
+    font-size: 4rem;
+    color: #dadada;
+    font-weight: 700;
+    position: relative;
+    p {
+      position: relative;
+      z-index: 100;
+    }
+  }
+  .maintxt {
+    font-size: 5.2rem;
+    color: #fff;
+    font-weight: 700;
+    margin: 5rem 0 22.2rem;
+  }
+  .more {
+    font-size: 14px;
+    color: #fff;
+    .arrow {
+      @include arrow();
+      background-color: #d2ecea;
+      color: #000;
+    }
+  }
+  .news-box {
+    width: 100%;
+    max-width: 900px;
+    padding-top: 15px;
+    .title {
+      font-size: 2.4rem;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 2.2rem;
+    }
+    .day {
+      font-size: 1.6rem;
+      color: #aaa;
+      font-weight: 700;
+    }
+    li {
+      border-top: 2px solid #eaeaea;
+      &:last-child {
+        border-bottom: 2px solid #eaeaea;
+      }
+    }
+    a {
+      display: block;
+      padding: 4.8rem 3rem;
+      span {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}
+//=====================section5==============================
+.section5 {
+  padding: 11rem 0 15rem;
+  .circle {
+    @include circle();
+    left: 0;
+  }
+  a {
+    position: relative;
+  }
+  .title-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 6rem 4rem 6.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+  }
+  .sub-txt {
+    font-size: 3.2rem;
+    color: #666;
+    font-weight: 700;
+    position: relative;
+    .txt {
+      position: relative;
+      z-index: 100;
+      margin-left: 15px;
+    }
+  }
+  .main-txt {
+    font-size: 5.2rem;
+    color: #000;
+    font-weight: 700;
+    margin: 5rem 0 9.5rem;
+  }
+  .kor {
+    font-size: 4.6rem;
+    color: #fff;
+    font-weight: 600;
+  }
+  .eng {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 500;
+    transform: rotate(-90deg);
+    display: block;
+  }
+  .arrow {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 64px;
+    height: 64px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      display: block;
+    }
   }
 }
