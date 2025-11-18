@@ -668,6 +668,10 @@ body {
   justify-content: space-between;
   align-items: start;
 }
+.section5 .title-box:hover .arrow {
+  height: 64px;
+  opacity: 1;
+}
 .section5 .sub-txt {
   font-size: 3.2rem;
   color: #666;
@@ -694,7 +698,8 @@ body {
   font-size: 2rem;
   color: #fff;
   font-weight: 500;
-  transform: rotate(-90deg);
+  transform: rotate(-90deg) translateX(-100%);
+  transform-origin: top left;
   display: block;
 }
 .section5 .arrow {
@@ -702,12 +707,11 @@ body {
   right: 0;
   bottom: 0;
   width: 64px;
-  height: 64px;
+  height: 0;
   background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.section5 .arrow img {
-  display: block;
+  opacity: 0;
+  transition: all 0.5s;
 }
