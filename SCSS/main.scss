@@ -20,24 +20,50 @@ $sub_black: #3a3a3a;
   height: 30px;
   border-radius: 50%;
   background-color: $main_c2;
-  position: absolute;
-  left: -15px;
-  z-index: 10;
+  display: inline-block;
+  transform: translateY(-27px) translateX(27px);
+  z-index: -1;
+  position: relative;
+  @media (width <=768px) {
+    width: 20px;
+    height: 20px;
+  }
 }
 html {
   font-size: 10px;
+  @media (width <= 992px) {
+    font-size: 9.5px;
+  }
+  @media (width <= 768px) {
+    font-size: 9px;
+  }
+  @media (width <= 479px) {
+    font-size: 8.5px;
+  }
+  @media (width <= 375px) {
+    font-size: 8px;
+  }
 }
 body {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 1.4rem;
+  word-break: keep-all;
 }
 
 .container {
   max-width: 1620px;
-  // height: 105px;
+  padding-inline: 3rem;
+
+  @media (width <= 1620px) {
+    padding-inline: 1.5rem;
+  }
 }
 .header-inner {
   height: 105px;
+
+  @media (width<=1200px) {
+    height: 94px;
+  }
 }
 //======================================
 .gnb-box {
@@ -113,6 +139,7 @@ body {
   }
 }
 //======================================
+
 .header-menubox {
   > ul {
     height: 100%;
@@ -157,6 +184,9 @@ body {
       padding: 0.8rem 0;
       color: #222;
     }
+  }
+  @media (width <= 1200px) {
+    display: none;
   }
 }
 
@@ -288,7 +318,6 @@ body {
   // }
   .container {
     margin-inline: auto;
-    padding-inline: 3rem;
     height: 100%;
   }
   .inner {
@@ -343,6 +372,18 @@ body {
   }
   .txt-sub.sub_black {
     color: $sub_black;
+  }
+  @media (width <= 768px) {
+    .num {
+      display: none;
+    }
+    .txt-main {
+      font-size: 3rem;
+    }
+    .swiper-controlbox {
+      right: auto;
+      left: 0;
+    }
   }
 }
 .section1 .more {
@@ -438,9 +479,7 @@ body {
 .section2 {
   background-color: #fafafa;
   padding: 13.6rem 0 15rem;
-  .container {
-    padding-inline: 3rem;
-  }
+
   .txt-box {
     display: flex;
     flex-direction: column;
@@ -452,17 +491,16 @@ body {
     margin-bottom: 10rem;
 
     .main-txt {
-      position: relative;
-      display: inline-block;
+      text-align: center;
       font-size: 4.8rem;
       color: #000;
       font-weight: 600;
       margin-bottom: 3.8rem;
-      p {
-        position: relative;
-        z-index: 100;
-      }
+      word-break: keep-all;
+
       .circle {
+        flex-shrink: 0;
+
         @include circle();
       }
     }
@@ -476,7 +514,6 @@ body {
   .iconbox {
     .icon {
       flex: 1;
-      height: 237px;
       &:not(:last-child) {
         border-right: 1px solid rgba(0, 79, 74, 0.15);
       }
@@ -487,7 +524,7 @@ body {
       align-items: center;
       justify-content: center;
       width: 100%;
-      height: 100%;
+      height: 237px;
       img {
         width: 66px;
         height: 69px;
@@ -509,6 +546,10 @@ body {
       margin-top: 2.6rem;
       transition: all 0.5s;
       position: relative;
+      text-align: center;
+      @media (width <= 1200px) {
+        font-size: 2rem;
+      }
     }
     .more {
       transition: all 0.5s;
@@ -520,14 +561,47 @@ body {
       }
     }
   }
+  @media (width <=768px) {
+    .iconbox {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+    .icon {
+      flex: none !important;
+      border-right: 0 !important;
+      padding-left: 5px;
+      margin-top: 5px;
+      width: 33.33%;
+      &:not(:last-child) {
+        border-right: 0;
+      }
+
+      > a {
+        border: 1px solid #e6ecec;
+        height: 202px;
+      }
+      .title {
+        font-size: 2rem;
+      }
+    }
+  }
+  @media (width <= 479px) {
+    .icon {
+      width: 50%;
+    }
+  }
 }
 //====================section3=============================
 .section3 {
   .container {
-    padding-inline: 3rem;
     display: flex;
     padding-block: 7rem 11.5rem;
+    @media (width <= 1200px) {
+      flex-direction: column;
+    }
   }
+
   .more {
     .arrow {
       @include arrow();
@@ -542,6 +616,16 @@ body {
     padding-right: 8.2rem;
     border-right: 2px dotted #dadada;
     align-items: center;
+    .txt-box {
+      margin-right: 3rem;
+    }
+    @media (width <= 1200px) {
+      border-right: 0;
+      border-bottom: 2px dotted #dadada;
+      padding-right: 0;
+      padding-bottom: 5rem;
+      padding-inline: 3rem;
+    }
   }
   .box2 {
     padding-left: 8.2rem;
@@ -550,21 +634,31 @@ body {
     justify-content: center;
     flex: 1;
     justify-content: space-between;
+    .txt-box {
+      margin-left: 3rem;
+    }
+    @media (width <= 1200px) {
+      padding-left: 0;
+      padding-top: 5rem;
+      padding-inline: 3rem;
+    }
     .more {
       .arrow {
         background-color: $main_c1;
       }
     }
     .txt-box {
-      display: flex;
-      flex-direction: column;
       align-items: flex-end;
+
       p {
         text-align: end;
       }
     }
   }
   .txt-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     .eng {
       font-size: 2rem;
       color: #aaa;
@@ -586,6 +680,26 @@ body {
   img {
     display: inline-block;
   }
+  @media (width <= 1200px) {
+    .desc {
+      margin-bottom: 4.5rem !important;
+    }
+  }
+  @media (width <= 600px) {
+    .box {
+      flex-direction: column;
+    }
+    .txt-box {
+      margin-right: 0;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+    .box2 {
+      .txt-box {
+        order: -1;
+      }
+    }
+  }
 }
 //==========================section4==============================
 .section4 {
@@ -593,14 +707,21 @@ body {
   .circle {
     @include circle();
   }
+  .container {
+    padding-block: 15rem;
+  }
+  .main-txtbox {
+    padding-left: 15px;
+    flex-shrink: 0;
+    vertical-align: bottom;
+  }
   .sub-txt {
     font-size: 4rem;
     color: #dadada;
     font-weight: 700;
-    position: relative;
-    p {
-      position: relative;
-      z-index: 100;
+
+    .circle {
+      transform: translateY(35px) translateX(-10px);
     }
   }
   .maintxt {
@@ -620,13 +741,22 @@ body {
   }
   .news-box {
     width: 100%;
-    max-width: 900px;
     padding-top: 15px;
+    max-width: 900px;
+    min-width: 0;
+
+    @media (width <= 1400px) {
+      padding-left: 10rem !important;
+    }
     .title {
       font-size: 2.4rem;
       color: #fff;
       font-weight: 600;
       margin-bottom: 2.2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
     }
     .day {
       font-size: 1.6rem;
@@ -642,10 +772,39 @@ body {
     a {
       display: block;
       padding: 4.8rem 3rem;
-      span {
-        display: block;
-        width: 100%;
+    }
+  }
+  @media (width <= 992px) {
+    .container {
+      padding-block: 9rem 15.5rem !important;
+      flex-direction: column;
+      position: relative;
+    }
+    .main-txtbox {
+      br {
+        display: none;
       }
+      padding-left: 10px;
+    }
+    .maintxt {
+      font-size: 4.6rem;
+      margin-top: 3rem;
+      margin-bottom: 3.2rem;
+    }
+    .sub-txt {
+      font-size: 3rem;
+    }
+    .circle {
+      transform: translateX(-10px) translateY(25px) !important;
+    }
+    .news-box {
+      padding-left: 0 !important;
+    }
+    .more {
+      position: absolute;
+      bottom: 8rem;
+      left: 50%;
+      margin-left: -60px;
     }
   }
 }
@@ -688,9 +847,12 @@ body {
     font-size: 3.2rem;
     color: #666;
     font-weight: 700;
-    position: relative;
+    display: flex;
+    margin-left: -30px;
+    .circle {
+      margin-top: 20px;
+    }
     .txt {
-      position: relative;
       z-index: 100;
       margin-left: 15px;
     }
@@ -713,11 +875,20 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
+    @media (width <= 1400px) {
+      padding: 4rem 4rem;
+    }
+    @media (width <= 1200px) {
+      padding: 3rem 3rem;
+    }
   }
   .kor {
     font-size: 4.6rem;
     color: #fff;
     font-weight: 600;
+    @media (width <= 1200px) {
+      font-size: 3.6rem;
+    }
   }
   .eng {
     font-size: 2rem;
@@ -726,6 +897,9 @@ body {
     transform: rotate(-90deg) translateX(-100%);
     transform-origin: top left;
     display: block;
+    @media (width <= 1200px) {
+      font-size: 1.8rem;
+    }
   }
   .arrow {
     position: absolute;
@@ -740,6 +914,34 @@ body {
     opacity: 0;
     transition: all 0.5s;
   }
+  @media (width <= 992px) {
+    .sub-txt {
+      font-size: 2.4rem;
+    }
+    .main-txt {
+      font-size: 4.6rem;
+      margin-block: 2rem 4.6rem;
+    }
+    .img-box {
+      flex-wrap: wrap;
+      li {
+        width: 50%;
+        a:hover {
+          transform: translate(0);
+        }
+      }
+    }
+    .arrow {
+      display: none;
+    }
+    img:not(.hovered-img) {
+      opacity: 0;
+    }
+    .hovered-img {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
 //==================footer===========================================
 footer {
@@ -752,6 +954,11 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (width <= 600px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
     .listbox {
       font-size: 1.6rem;
       font-weight: 500;
@@ -822,6 +1029,17 @@ footer {
       height: 10px;
       background-color: #626262;
       margin-inline: 2.2rem;
+    }
+    @media (width <= 1200px) {
+      span:first-child::after {
+        content: "";
+        display: block;
+        height: 0;
+        margin-bottom: 14px;
+      }
+    }
+    @media (width <= 600px) {
+      margin-inline: 1.5rem;
     }
   }
   .ft-3 {
