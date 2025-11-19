@@ -5,6 +5,7 @@ const menuBtn = document.querySelector(".header-utils__menu-btn .menu-btn");
 const gnbBox = document.querySelector(".gnb-box");
 const familySiteBox = document.querySelector(".family-site-box");
 const familySiteBoxTitle = document.querySelector(".family-site-box >.title");
+const topBtn = document.querySelector(".top");
 /*
 header > language list
 상단바의 언어 설정 메뉴 클릭 시 언어 리스트 표시 설정
@@ -83,6 +84,19 @@ function familySiteList() {
     }
   });
 }
+
+/*
+scroll to top 
+*/
+function scrollTop() {
+  topBtn.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}
+
 /*
 add/remove active class
 */
@@ -103,3 +117,4 @@ headerLangOption();
 menuBtnMotion();
 section1Swiper();
 familySiteList();
+scrollTop();

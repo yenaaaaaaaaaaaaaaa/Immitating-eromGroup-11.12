@@ -833,3 +833,31 @@ footer {
     }
   }
 }
+//==========TOP=======================
+.top {
+  z-index: 500;
+  right: 2rem;
+  bottom: 2rem;
+  cursor: pointer;
+  > div {
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    height: 90px;
+    align-items: center;
+    justify-content: center;
+    background-color: #032523;
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.5s;
+    &:hover {
+      border-radius: 50%;
+    }
+  }
+  i {
+    color: #666;
+    font-weight: 600;
+    font-size: 1.8rem;
+  }
+}
