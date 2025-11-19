@@ -3,6 +3,8 @@ const headerUtilsLang = document.querySelector(".header-utils__lang");
 const langList = document.querySelector(".lang-list");
 const menuBtn = document.querySelector(".header-utils__menu-btn .menu-btn");
 const gnbBox = document.querySelector(".gnb-box");
+const familySiteBox = document.querySelector(".family-site-box");
+const familySiteBoxTitle = document.querySelector(".family-site-box >.title");
 /*
 header > language list
 상단바의 언어 설정 메뉴 클릭 시 언어 리스트 표시 설정
@@ -45,7 +47,6 @@ function menuBtnMotion() {
 /*
 section1 > swiper
 */
-let swiper1;
 function section1Swiper() {
   swiper1 = new Swiper(".section1 .swiper", {
     pagination: {
@@ -68,8 +69,20 @@ function section1Swiper() {
     },
   });
 }
-//pagination2
-function pagination2() {}
+
+/*
+footer > family-site
+*/
+function familySiteList() {
+  familySiteBoxTitle.addEventListener("click", function () {
+    const isActive = familySiteBox.classList.contains("active");
+    if (isActive) {
+      removeActiveClass(familySiteBox);
+    } else {
+      addActiveClass(familySiteBox);
+    }
+  });
+}
 /*
 add/remove active class
 */
@@ -80,14 +93,13 @@ function removeActiveClass(el) {
   el.classList.remove("active");
 }
 //AOS
-
 AOS.init({
-  offset : 150,
-  duration : 1000,
-  mirror : true
+  offset: 300,
+  duration: 1000,
+  mirror: false,
 });
 //========================================================================
 headerLangOption();
 menuBtnMotion();
 section1Swiper();
-pagination2();
+familySiteList();

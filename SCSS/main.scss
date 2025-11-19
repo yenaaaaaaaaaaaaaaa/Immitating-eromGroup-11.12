@@ -652,30 +652,37 @@ body {
 //=====================section5==============================
 .section5 {
   padding: 11rem 0 15rem;
+  height: 100%;
   .circle {
     @include circle();
     left: 0;
   }
+  li {
+    height: 100%;
+  }
   a {
     position: relative;
-  }
-  .title-box {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 6rem 4rem 6.8rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
-    &:hover{
-      .arrow{
+    transform: translateY(0);
+    transition: transform 0.5s;
+    display: block;
+    &:hover {
+      .arrow {
         height: 64px;
         opacity: 1;
       }
+      .hovered-img {
+        opacity: 1;
+        visibility: visible;
+      }
+      transform: translateY(-5rem);
     }
+  }
+
+  .hovered-img {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
   }
   .sub-txt {
     font-size: 3.2rem;
@@ -689,10 +696,23 @@ body {
     }
   }
   .main-txt {
+    padding-left: 15px;
     font-size: 5.2rem;
     color: #000;
     font-weight: 700;
     margin: 5rem 0 9.5rem;
+  }
+  .title-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 6rem 4rem 6.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
   }
   .kor {
     font-size: 4.6rem;
@@ -718,6 +738,98 @@ body {
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition : all 0.5s
+    transition: all 0.5s;
+  }
+}
+//==================footer===========================================
+footer {
+  background-color: #111;
+  padding-bottom: 5.8rem;
+  color: #fff;
+  .ft-1 {
+    border-bottom: 1px solid #343434;
+    padding-block: 3.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .listbox {
+      font-size: 1.6rem;
+      font-weight: 500;
+      gap: 3.8rem;
+    }
+    .family-site-box {
+      width: 225px;
+      height: 38px;
+      border-top: 1px solid #666;
+      border-bottom: 1px solid #eee;
+      color: #dadada;
+      padding: 0 5px;
+      position: relative;
+      .title {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.6rem;
+        color: #dadada;
+        &::after {
+          content: "\f106";
+          font-family: "Font Awesome 5 Free";
+          font-weight: 600;
+          font-size: 1.8rem;
+        }
+      }
+      .family-site {
+        position: absolute;
+        height: 0;
+        width: 255px;
+        bottom: 51px;
+        background-color: $main_c1;
+        border-radius: 30px 30px 30px 0;
+        transition: all 0.5s;
+        ul {
+          padding-inline: 2.6rem;
+          overflow-y: scroll;
+          height: 100%;
+        }
+        li {
+          margin-top: 11px;
+          a {
+            font-size: 1.6rem;
+            color: #fff;
+          }
+        }
+      }
+      &.active {
+        .title::after {
+          transform: rotate(180deg);
+        }
+        .family-site {
+          height: 200px;
+          padding-block: 3rem 1.5rem;
+        }
+      }
+    }
+  }
+  .ft-2 {
+    margin: 32px 0 20px;
+    font-size: 14px;
+    color: #aaa;
+    > span:not(:last-child)::after {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 10px;
+      background-color: #626262;
+      margin-inline: 2.2rem;
+    }
+  }
+  .ft-3 {
+    font-size: 14px;
+    color: #aaa;
+    text-transform: uppercase;
+    .highlight {
+      font-weight: 600;
+    }
   }
 }
