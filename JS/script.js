@@ -108,14 +108,15 @@ function gnbMobMenu(){
     // console.log(menu);
     menu.addEventListener("click",function()
     {
-      getSiblings(menu);
+      removeActiveSiblngs(menu);
       const isActive = menu.classList.contains("active");
       if(isActive){
         removeActiveClass(menu);
       }
       else{
-        removeActiveSiblngs(menu);
+        
         addActiveClass(menu);
+        
         
       }
     });
@@ -128,18 +129,18 @@ function gnbMobMenu(){
 }
 
 function getSiblings(el){
-  const siblings =Array.from(el.parentElement.children).filter(
+  return siblings =Array.from(el.parentElement.children).filter(
 		(sibling) => sibling != el
 	);
   // console.log(siblings);
 }
 function removeActiveSiblngs(el){
-  const activeSiblings = getSiblings(el).filter(function(sibling){
-    sibling.classList.contains("active");
-  });
-  activeSiblings.forEach(function(activeSibling){
-    removeActiveClass(activeSibling);
-  })
+ 
+  const activeSibling = getSiblings(el).find((sibling) =>
+		sibling.classList.contains("active")
+	);
+  
+  if(activeSibling) removeActiveClass(activeSibling);
 }
 /*
 add/remove active class
