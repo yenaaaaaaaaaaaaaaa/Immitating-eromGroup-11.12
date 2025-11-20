@@ -6,7 +6,8 @@ const gnbBox = document.querySelector(".gnb-box");
 const familySiteBox = document.querySelector(".family-site-box");
 const familySiteBoxTitle = document.querySelector(".family-site-box >.title");
 const topBtn = document.querySelector(".top");
-const gnbDepth1Menu = document.querySelectorAll(".depth1 > li");
+const $depth2 = $(".gnb-menubox .depth2");
+const $gnbDepth1Menu = $(".depth1 > li");
 /*
 header > language list
 상단바의 언어 설정 메뉴 클릭 시 언어 리스트 표시 설정
@@ -101,46 +102,56 @@ function scrollTop() {
 /*
 gnb > menu
  */
-function gnbMobMenu(){
-  // console.log(gnbDepth1Menu);
-  const depth2 = document.querySelectorAll(".gnb-menubox .depth2");
-  gnbDepth1Menu.forEach(function(menu){
-    // console.log(menu);
-    menu.addEventListener("click",function()
-    {
-      removeActiveSiblngs(menu);
-      const isActive = menu.classList.contains("active");
-      if(isActive){
-        removeActiveClass(menu);
-      }
-      else{
-        
-        addActiveClass(menu);
-        
-        
-      }
+function gnbMobMenu() {
+  $gnbDepth1Menu.click(function () {
+    const $this = $(this);
+    const isActive = $this.hasClass("active");
+    $this.siblings(".active").find("> ul").slideUp(500);
+    $this.siblings(".active").removeClass("active");
+    if (isActive) {
+      $this.removeClass("active");
+      $this.find(".active").removeClass("active");
+      $this.find("> ul").slideUp(500);
+    } else {
+      $this.addClass("active");
+      $this.find("> ul").slideDown(500);
+    }
+    $depth2.click(function (e) {
+      return false;
     });
   });
-  depth2.forEach(function(ul) {
-    ul.addEventListener("click", function(e){
-      e.stopPropagation();
-    })
-  })
+  // console.log(gnbDepth1Menu);
+  // gnbDepth1Menu.forEach(function (menu) {
+  //   // console.log(menu);
+  //   menu.addEventListener("click", function () {
+  //     removeActiveSiblngs(menu);
+  //     const isActive = menu.classList.contains("active");
+  //     if (isActive) {
+  //       removeActiveClass(menu);
+  //     } else {
+  //       addActiveClass(menu);
+  //     }
+  //   });
+  // });
+  // depth2.forEach(function (ul) {
+  //   ul.addEventListener("click", function (e) {
+  //     e.stopPropagation();
+  //   });
+  // });
 }
 
-function getSiblings(el){
-  return siblings =Array.from(el.parentElement.children).filter(
-		(sibling) => sibling != el
-	);
+function getSiblings(el) {
+  return (siblings = Array.from(el.parentElement.children).filter(
+    (sibling) => sibling != el
+  ));
   // console.log(siblings);
 }
-function removeActiveSiblngs(el){
- 
+function removeActiveSiblngs(el) {
   const activeSibling = getSiblings(el).find((sibling) =>
-		sibling.classList.contains("active")
-	);
-  
-  if(activeSibling) removeActiveClass(activeSibling);
+    sibling.classList.contains("active")
+  );
+
+  if (activeSibling) removeActiveClass(activeSibling);
 }
 /*
 add/remove active class

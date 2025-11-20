@@ -105,11 +105,17 @@ body {
   .gnb-box .lang-list-box {
     display: block;
   }
+  .gnb-box .gnb-footer {
+    display: none;
+  }
   .gnb-box .depth2 {
-    max-height: 0;
+    display: none;
+    height: 100%;
     margin-top: 0 !important;
-    overflow: hidden;
-    transition: all 0.5s;
+    padding-top: 38px;
+  }
+  .gnb-box .depth2 li:first-child {
+    margin-top: 0;
   }
   .gnb-box .depth2 a::before {
     content: "  .  ";
@@ -122,17 +128,11 @@ body {
     flex-direction: column;
     flex-wrap: nowrap;
     margin-top: 3rem;
-    height: 100%;
   }
   .gnb-box .depth1 > li {
     width: 100%;
     padding: 22px 20px 26px 10px;
     margin-top: 0;
-  }
-  .gnb-box .depth1 > li.active > .depth2 {
-    top: 0;
-    max-height: 400px;
-    margin-top: 38px;
   }
   .gnb-box .depth1 > li.active > a::after {
     transform: rotate(-180deg);
@@ -149,7 +149,7 @@ body {
     color: #fff;
     opacity: 0.4;
     font-size: 18px;
-    transition: all 0.5s;
+    transition: transform 0.5s;
   }
 }
 
