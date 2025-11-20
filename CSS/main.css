@@ -359,21 +359,31 @@ body {
 
 .section1 .swiper-slide1 {
   background-image: url(/ASSETS/images/visual01.png);
+  background-size: cover;
+  background-position: center center;
 }
 .section1 .swiper-slide2 {
   background-image: url(/ASSETS/images/visual02.png);
+  background-size: cover;
+  background-position: center center;
 }
 .section1 .swiper-slide3 {
   background-image: url(/ASSETS/images/visual03.png);
+  background-size: cover;
+  background-position: center center;
 }
 .section1 .swiper-slide4 {
   background-image: url(/ASSETS/images/visual04.png);
+  background-size: cover;
+  background-position: center center;
 }
 .section1 .swiper-slide5 {
   background-image: url(/ASSETS/images/visual05.png);
+  background-size: cover;
+  background-position: center center;
 }
 .section1 .swiper-slide {
-  height: 800px;
+  height: 100%;
   width: 100%;
 }
 .section1 .container {
@@ -386,6 +396,15 @@ body {
   width: 100%;
   top: 0;
   padding-top: 16.6rem;
+}
+@media (width <= 768px) {
+  .section1 .inner {
+    height: 500px !important;
+    padding-top: 8.4rem;
+  }
+  .section1 .inner .txt-sub {
+    display: none;
+  }
 }
 .section1 .num {
   font-family: "Montserrat", sans-serif;

@@ -402,10 +402,12 @@ body {
   @for $i from 1 through 5 {
     .swiper-slide#{$i} {
       background-image: url(/ASSETS/images/visual0#{$i}.png);
+      background-size: cover;
+      background-position: center center;
     }
   }
   .swiper-slide {
-    height: 800px;
+    height: 100%;
     width: 100%;
   }
   // img {
@@ -421,6 +423,13 @@ body {
     width: 100%;
     top: 0;
     padding-top: 16.6rem;
+    @media (width <= 768px) {
+      height: 500px !important;
+      padding-top: 8.4rem;
+      .txt-sub {
+        display: none;
+      }
+    }
   }
   .num {
     font-family: "Montserrat", sans-serif;
