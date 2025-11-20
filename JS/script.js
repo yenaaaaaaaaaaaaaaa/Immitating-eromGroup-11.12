@@ -6,6 +6,7 @@ const gnbBox = document.querySelector(".gnb-box");
 const familySiteBox = document.querySelector(".family-site-box");
 const familySiteBoxTitle = document.querySelector(".family-site-box >.title");
 const topBtn = document.querySelector(".top");
+const gnbDepth1Menu = document.querySelectorAll(".depth1 > li");
 /*
 header > language list
 상단바의 언어 설정 메뉴 클릭 시 언어 리스트 표시 설정
@@ -98,6 +99,49 @@ function scrollTop() {
 }
 
 /*
+gnb > menu
+ */
+function gnbMobMenu(){
+  // console.log(gnbDepth1Menu);
+  const depth2 = document.querySelectorAll(".gnb-menubox .depth2");
+  gnbDepth1Menu.forEach(function(menu){
+    // console.log(menu);
+    menu.addEventListener("click",function()
+    {
+      getSiblings(menu);
+      const isActive = menu.classList.contains("active");
+      if(isActive){
+        removeActiveClass(menu);
+      }
+      else{
+        removeActiveSiblngs(menu);
+        addActiveClass(menu);
+        
+      }
+    });
+  });
+  depth2.forEach(function(ul) {
+    ul.addEventListener("click", function(e){
+      e.stopPropagation();
+    })
+  })
+}
+
+function getSiblings(el){
+  const siblings =Array.from(el.parentElement.children).filter(
+		(sibling) => sibling != el
+	);
+  // console.log(siblings);
+}
+function removeActiveSiblngs(el){
+  const activeSiblings = getSiblings(el).filter(function(sibling){
+    sibling.classList.contains("active");
+  });
+  activeSiblings.forEach(function(activeSibling){
+    removeActiveClass(activeSibling);
+  })
+}
+/*
 add/remove active class
 */
 function addActiveClass(el) {
@@ -118,3 +162,4 @@ menuBtnMotion();
 section1Swiper();
 familySiteList();
 scrollTop();
+gnbMobMenu();
