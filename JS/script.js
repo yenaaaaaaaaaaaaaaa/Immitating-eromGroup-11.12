@@ -164,10 +164,16 @@ function removeActiveClass(el) {
 }
 //AOS
 AOS.init({
-  offset: 300,
+  offset: 150,
   duration: 1000,
   mirror: false,
 });
+//test
+// document.querySelectorAll("*").forEach((el) => {
+//   if (el.scrollWidth > document.documentElement.clientWidth) {
+//     el.style.outline = "2px solid red";
+//   }
+// });
 //========================================================================
 headerLangOption();
 menuBtnMotion();

@@ -29,6 +29,12 @@ body {
   word-break: keep-all;
 }
 
+html,
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
 .container {
   max-width: 1620px;
   padding-inline: 3rem;
@@ -48,6 +54,12 @@ body {
   }
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .gnb-box {
   background: linear-gradient(-45deg, #20bd80 -20%, #004e4f);
   z-index: 800;
@@ -56,6 +68,7 @@ body {
   top: 0;
   height: 0;
   transition: height 0.5s;
+  box-sizing: border-box;
 }
 .gnb-box .gnb-header > .container {
   padding-right: 2rem;
@@ -69,7 +82,7 @@ body {
 .gnb-box .lang-list-box {
   flex-shrink: 0;
   display: none;
-  margin-right: 75px;
+  margin-right: 50px;
 }
 .gnb-box .lang-list-box .lang-list {
   gap: 14px;
@@ -1153,12 +1166,15 @@ footer .ft-1 .family-site-box .family-site li a {
   font-size: 1.6rem;
   color: #fff;
 }
+footer .ft-1 .family-site-box .family-site li:first-child {
+  padding-top: 3rem;
+}
 footer .ft-1 .family-site-box.active .title::after {
   transform: rotate(180deg);
 }
 footer .ft-1 .family-site-box.active .family-site {
   height: 200px;
-  padding-block: 3rem 1.5rem;
+  padding-bottom: 1.5rem;
 }
 footer .ft-2 {
   margin: 32px 0 20px;
@@ -1182,8 +1198,17 @@ footer .ft-2 > span:not(:last-child)::after {
   }
 }
 @media (width <= 600px) {
-  footer .ft-2 {
-    margin-inline: 1.5rem;
+  footer .ft-2 span:first-child {
+    display: block;
+    margin-bottom: 14px;
+  }
+  footer .ft-2 > span:not(:last-child)::after {
+    display: none;
+  }
+  footer .ft-2 > span:not(:first-child) {
+    margin-left: 3rem;
+    text-align: center;
+    white-space: nowrap;
   }
 }
 footer .ft-3 {
@@ -1193,6 +1218,11 @@ footer .ft-3 {
 }
 footer .ft-3 .highlight {
   font-weight: 600;
+}
+@media (width <= 600px) {
+  footer .ft-3 {
+    text-align: center;
+  }
 }
 
 .top {
