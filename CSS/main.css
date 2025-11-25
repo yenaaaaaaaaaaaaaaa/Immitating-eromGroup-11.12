@@ -50,7 +50,8 @@ body {
 }
 @media (width <= 1200px) {
   .header-inner {
-    height: 94px;
+    padding-block: 2rem;
+    height: 100%;
   }
 }
 
@@ -301,6 +302,11 @@ img {
   width: 30px;
   height: 30px;
   cursor: pointer;
+}
+@media (width <= 600px) {
+  .lang-icon {
+    display: none;
+  }
 }
 
 .menu-btn {
