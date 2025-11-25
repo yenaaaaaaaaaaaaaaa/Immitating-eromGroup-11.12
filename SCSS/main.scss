@@ -170,9 +170,9 @@ img {
         padding: 22px 20px 26px 10px;
         margin-top: 0;
         &.active {
-          > a::after {
-            transform: rotate(-180deg);
-          }
+          // > a::after {
+          //   transform: rotate(-180deg);
+          // }
         }
         > a {
           display: flex;
@@ -182,12 +182,12 @@ img {
         }
       }
       > li > a::after {
-        content: "\f077";
+        content: "\f078";
         font-family: "fontAwesome";
         color: #fff;
         opacity: 0.4;
         font-size: 18px;
-        transition: transform 0.5s;
+        // transition: transform 0.5s;
       }
     }
   }
