@@ -65,11 +65,10 @@ body {
 }
 .header-inner {
   height: 105px;
-  
-  @media (width<=1200px) {
-    padding-block : 2rem;
-    height : 100%;
 
+  @media (width<=1200px) {
+    padding-block: 2rem;
+    height: 100%;
   }
 }
 img {
