@@ -373,27 +373,27 @@ img {
 }
 
 .section1 .swiper-slide1 {
-  background-image: url(/ASSETS/images/visual01.png);
+  background-image: url(../assets/images/visual01.png);
   background-size: cover;
   background-position: center center;
 }
 .section1 .swiper-slide2 {
-  background-image: url(/ASSETS/images/visual02.png);
+  background-image: url(../assets/images/visual02.png);
   background-size: cover;
   background-position: center center;
 }
 .section1 .swiper-slide3 {
-  background-image: url(/ASSETS/images/visual03.png);
+  background-image: url(../assets/images/visual03.png);
   background-size: cover;
   background-position: center center;
 }
 .section1 .swiper-slide4 {
-  background-image: url(/ASSETS/images/visual04.png);
+  background-image: url(../assets/images/visual04.png);
   background-size: cover;
   background-position: center center;
 }
 .section1 .swiper-slide5 {
-  background-image: url(/ASSETS/images/visual05.png);
+  background-image: url(../assets/images/visual05.png);
   background-size: cover;
   background-position: center center;
 }

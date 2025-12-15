@@ -417,7 +417,7 @@ img {
 .section1 {
   @for $i from 1 through 5 {
     .swiper-slide#{$i} {
-      background-image: url(/ASSETS/images/visual0#{$i}.png);
+      background-image: url(../assets/images/visual0#{$i}.png);
       background-size: cover;
       background-position: center center;
     }
